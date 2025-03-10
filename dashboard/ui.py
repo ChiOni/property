@@ -25,7 +25,7 @@ app_ui = ui.page_fluid(
             border-bottom: 2px solid #ddd;
         }
         .input-section {
-            text-align: center;
+            text-align: left;
             margin-bottom: 20px;
         }
         .chart-section, .table-section {
