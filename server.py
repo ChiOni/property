@@ -1,8 +1,12 @@
 # server.py
+import pandas as pd
 from shiny import render
 import matplotlib.pyplot as plt
-import pandas as pd
-plt.rcParams["font.family"] = "Malgun Gothic"  # Windows 기본 한글 폰트
+import matplotlib.font_manager as fm
+
+# 로컬 폰트 경로 (배포된 프로젝트 폴더 내 위치)
+font_path = "/NanumGothic.ttf"
+font_prop = fm.FontProperties(fname=font_path)
 plt.rcParams["axes.unicode_minus"] = False  # 음수 기호 깨짐 방지
 
 def server(input, output, session):
@@ -21,7 +25,7 @@ def server(input, output, session):
 
         plt.figure(figsize=(8, 5))
         daily_ratio.plot(kind="bar", color=["red", "blue", "green", "gray"][len(daily_ratio)])
-        plt.title(f"{selected_date} 최저가 변화 비율")
+        plt.title(f"{selected_date.date()} 최저가 변화 비율")
         plt.ylabel("비율 (%)")
         plt.xticks(rotation=0)
         plt.grid(axis="y")
