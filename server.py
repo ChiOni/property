@@ -7,6 +7,7 @@ import matplotlib.font_manager as fm
 # 로컬 폰트 경로 (배포된 프로젝트 폴더 내 위치)
 font_path = "/NanumGothic.ttf"
 font_prop = fm.FontProperties(fname=font_path)
+plt.rcParams["font.family"] = font_prop.get_name()
 plt.rcParams["axes.unicode_minus"] = False  # 음수 기호 깨짐 방지
 
 def server(input, output, session):
